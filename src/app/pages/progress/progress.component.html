@@ -1,1 +1,45 @@
-<p>progress works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+               <div class="progress-bar bg-primary progress-bar-striped active"
+                    [style.width]="getProgreso1"
+                    style="height:10px;"
+                    role="progressbar">
+                <span class="sr-only">85% Complete (success</span>
+               </div>
+            </div>
+            <div class="card-body">
+                <div class="progress-bar bg-info progress-bar-striped active"
+                    [style.width]="getProgreso2"
+                    style="height:10px;"
+                    role="progressbar">
+                 <span class="sr-only">85% Complete (success</span>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador
+                    (valorSalida)="progreso1 = $event"
+                    [valor]="progreso1">
+                </app-incrementador>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador
+                    (valorSalida)="progreso2 = $event"
+                    [valor]="progreso2"
+                    [btnClass]="'btn btn-info'">
+                </app-incrementador>
+            </div>
+        </div>
+    </div>
+</div>
