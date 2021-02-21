@@ -11,6 +11,10 @@
 
 #google-btn {
     justify-content: center;
-    display: flex;
-    
+    display: flex;   
+}
+
+.img-avatar {
+    height: 200px;
+    width: 200px;
 }
