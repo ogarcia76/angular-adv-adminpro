@@ -53,11 +53,10 @@ export class PerfilComponent implements OnInit {
     this.imagenSubir = file;
 
     if ( !file ) {
-      return this.imgTemp = null; 
+      this.imgTemp = null; 
     }
 
     const reader = new FileReader();
-    const url64 = reader.readAsDataURL( file );
 
     reader.onloadend = () => {
       this.imgTemp = reader.result;
