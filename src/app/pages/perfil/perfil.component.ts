@@ -49,7 +49,9 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  cambiarImagen( file: File ) {
+  cambiarImagen( event: any ) {
+    
+    const file = event &&  event.target && event.target.files[0];
     this.imagenSubir = file;
 
     if ( !file ) {

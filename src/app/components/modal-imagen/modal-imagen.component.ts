@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from '@angular/router';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 import Swal from 'sweetalert2';
@@ -24,7 +25,9 @@ export class ModalImagenComponent implements OnInit {
     this.modalImagenService.cerrarModal();
   }
 
-  cambiarImagen( file: File ) {
+  cambiarImagen( event: any ) {
+
+    const file = event &&  event.target && event.target.files[0];
 
     this.imagenSubir = file;
     if ( !file ) {
