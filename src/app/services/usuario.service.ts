@@ -30,6 +30,10 @@ export class UsuarioService {
     return localStorage.getItem('token') || '';
   }
 
+  get role() {
+    return this.usuario.role;
+  }
+
   get uid(): string {
     return this.usuario.uid || '';
   }
@@ -58,6 +62,7 @@ export class UsuarioService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
     
     this.auth2.signOut().then(() => {
       this.ngZone.run(() => {
@@ -90,6 +95,7 @@ export class UsuarioService {
           uid
         )
         localStorage.setItem('token', resp.token );
+        localStorage.setItem('menu', JSON.stringify(resp.menu) );
         return true;
       }),
       catchError( error => of(false) )
@@ -103,6 +109,7 @@ export class UsuarioService {
         tap( (resp: any) => {
           console.log( resp );
           localStorage.setItem('token', resp.token );
+          localStorage.setItem('menu', JSON.stringify(resp.menu) );
         })
       );
   }
@@ -124,6 +131,7 @@ export class UsuarioService {
         tap( (resp: any) => {
           console.log( resp );
           localStorage.setItem('token', resp.token );
+          localStorage.setItem('menu', JSON.stringify(resp.menu) );
         })
       );
   }
@@ -135,6 +143,7 @@ export class UsuarioService {
       tap( (resp: any) => {
         console.log( resp );
         localStorage.setItem('token', resp.token );
+        localStorage.setItem('menu', JSON.stringify(resp.menu) );
       })
     );
   }
